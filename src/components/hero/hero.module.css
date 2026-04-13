@@ -1,0 +1,51 @@
+.heroSection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--color-primary-light);
+    overflow: hidden;
+}
+
+.heroContent {
+    max-width: 600px;
+    z-index: 2;
+}
+.heroTitle{
+    color: #ffffff;
+}
+.heroSubtitle {
+    color: #d41e1e;
+    font-size: clamp(1.2rem,5vw,4.5rem);
+}
+
+.heroImage {
+    display: block;
+    width: min(700px,80vw);
+}
+.heroFigure {
+    position: relative;
+    z-index: 1;
+}
+.heroFigure::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 20%;
+    right: -30%;
+    border-radius: 50%;
+    display: block;
+    background-color: var(--color-primary);
+    width: 120%;
+    aspect-ratio: 1/1;
+}
+
+.svgHero {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: clamp(60px, 10vw, 120px);
+    fill: var(--color-background);
+    z-index: 10;
+}
