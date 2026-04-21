@@ -1,13 +1,14 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @font-face {
   font-family: Vaseline;
   src: url(assets/fonts/vaseline_extra/Vaseline\ Extra.ttf);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --color-primary: #FF7D01;
-  --color-primary-light: #FDA923;
+  --color-primary: #F1652E;
+  --color-primary-light: #FAC51A;
 
   --color-background: #F5F5F5;
   --color-surface: #FFFFFF;
@@ -26,7 +27,7 @@
 
   --color-card-bg: #FFF8F0;
 
-  --font-default: font-family: "Poppins", sans-serif;
+  --font-default: "Poppins", sans-serif;
   ;
   --font-display: 'Vaseline', sans-serif;
 }
@@ -38,12 +39,10 @@
 }
 
 body {
-  font-family: var(--font-default);
+  font-family:  var(--font-default);
   background-color: var(--color-background);
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
+section{
+  padding: 2em;
 }

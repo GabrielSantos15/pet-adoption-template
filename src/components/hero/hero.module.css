@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: var(--color-primary-light);
+    background-color:#d3d3d3;
     overflow: hidden;
 }
 
@@ -12,11 +12,12 @@
     max-width: 600px;
     z-index: 2;
 }
-.heroTitle{
-    color: #ffffff;
+.heroTitle,.heroContent{
+    font-family: var(--font-display);
+    color: var( --color-primary);
 }
+
 .heroSubtitle {
-    color: #d41e1e;
     font-size: clamp(1.2rem,5vw,4.5rem);
 }
 
@@ -45,7 +46,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: clamp(60px, 10vw, 120px);
+    height: clamp(70px, 50vw, 250px);
     fill: var(--color-background);
     z-index: 10;
 }

@@ -1,0 +1,8 @@
+.PetCard{
+    max-width: 500px;
+}
+.PetCard img{
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
