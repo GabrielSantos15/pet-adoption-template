@@ -1,9 +1,12 @@
 import { PetCard } from "../petCard";
 import { useRef } from "react";
 import styles from "./petList.module.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { PetCardSkeleton } from "../petCardSkeleton/PetCardSkeleton";
 
-export const PetsList = ({ pets }) => {
+export const PetsList = ({ pets, loading }) => {
   const scrollRef = useRef(null);
+  const skeletonCount = 5;
 
   const scroll = (direction) => {
     const container = scrollRef.current;
@@ -22,11 +25,17 @@ export const PetsList = ({ pets }) => {
         ref={scrollRef}
         className={styles.carousel}
       >
-        {pets.map((pet, index) => (
-          <div key={index} className={styles.carouselItem}>
-            <PetCard pet={pet} />
-          </div>
-        ))}
+        {loading
+          ? Array.from({ length: skeletonCount }).map((_, index) => (
+              <div key={index} className={styles.carouselItem}>
+                <PetCardSkeleton />
+              </div>
+            ))
+          : pets.map((pet, index) => (
+              <div key={index} className={styles.carouselItem}>
+                <PetCard pet={pet} />
+              </div>
+            ))}
       </div>
 
       {/* Botões */}
@@ -37,14 +46,14 @@ export const PetsList = ({ pets }) => {
           aria-label="Rolar para a esquerda"
           className={styles.controlButtonPrimary}
         >
-          ←
+          <FaChevronLeft />
         </button>
         <button
           onClick={() => scroll("right")}
           aria-label="Rolar para a direita"
           className={styles.controlButtonSecondary}
         >
-          →
+          <FaChevronRight />
         </button>
       </div>
     </div>

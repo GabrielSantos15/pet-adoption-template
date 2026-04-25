@@ -3,7 +3,7 @@ import { PetsList } from "../../components/petsList";
 import { useDestaques } from "../../hooks/useDestaques";
 import styles from "./home.module.css";
 
-export const Home = ({ pets }) => {
+export const Home = ({ pets, loading }) => {
   const destaques = useDestaques(pets, 5);
 
   return (
@@ -21,7 +21,7 @@ export const Home = ({ pets }) => {
         </div>
 
         <div className={styles.listWrapper}>
-          <PetsList pets={destaques} />
+          <PetsList pets={destaques} loading={loading} />
         </div>
       </section>
     </main>

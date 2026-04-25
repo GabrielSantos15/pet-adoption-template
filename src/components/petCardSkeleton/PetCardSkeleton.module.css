@@ -1,0 +1,115 @@
+.PetCard {
+    position: relative;
+    width: min(350px, calc(100vw - 4rem));
+    min-width: min(350px, calc(100vw - 4rem));
+    flex-shrink: 0;
+    box-shadow: 5px 5px 10px #0000000a;
+    border-radius: 15px;
+    background-color: var(--color-surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.Image {
+    position: relative;
+    background: linear-gradient(110deg, #ececec 8%, #f7f7f7 18%, #ececec 33%);
+    background-size: 200% 100%;
+    width: min(350px, calc(100vw - 4rem));
+    aspect-ratio: 1/1;
+    animation: shimmer 1.35s linear infinite;
+}
+
+.Image::after,
+.SkeletonLine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 8%, rgba(255, 255, 255, 0.55) 18%, transparent 33%);
+    transform: translateX(-100%);
+    animation: shimmerOverlay 1.35s linear infinite;
+}
+
+.SexoIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #d7d7d7 8%, #ededed 18%, #d7d7d7 33%);
+    background-size: 200% 100%;
+    z-index: 2;
+    animation: shimmer 1.35s linear infinite;
+}
+
+.InfoCard {
+    border-radius: 16px 16px 0 0;
+    translate: 0 -15px;
+    background-color: var(--color-surface);
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.InfoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.SkeletonLine {
+    position: relative;
+    overflow: hidden;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #ececec 8%, #f7f7f7 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: shimmer 1.35s linear infinite;
+}
+
+.TitleLine {
+    width: 70%;
+    height: 1.4rem;
+}
+
+.SubtitleLine {
+    width: 58%;
+    height: 0.9rem;
+}
+
+.SkeletonLine::after {
+    border-radius: inherit;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes shimmerOverlay {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .Image,
+    .SexoIcon,
+    .SkeletonLine,
+    .Image::after,
+    .SkeletonLine::after {
+        animation: none;
+    }
+}
