@@ -7,10 +7,11 @@
 
 
 :root {
-  --color-primary: #F1652E;
+  --color-primary: #FF9201;
   --color-primary-light: #FAC51A;
 
-  --color-background: #F5F5F5;
+  /* --color-background: #F5F5F5; */
+  --color-background: #f5f5f5;
   --color-surface: #FFFFFF;
 
   --color-text: #333333;
@@ -41,8 +42,4 @@
 body {
   font-family:  var(--font-default);
   background-color: var(--color-background);
-}
-
-section{
-  padding: 2em;
 }

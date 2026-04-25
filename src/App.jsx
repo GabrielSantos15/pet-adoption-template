@@ -22,15 +22,11 @@ function App() {
       },
     });
   }, []);
-  const destaques = useDestaques(pets, 5);
 
   return (
     <>
-      {/* <Header></Header> */}
-      <Home></Home>
-      <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-bold">Conheça alguns dos nossos animais</h2>
-      <p  className="text-[clamp(1rem,2vw,1.2rem)] text-gray-600 mt-2">Cada um deles tem uma história, talvez a próxima seja com você</p>
-      <PetsList pets={destaques}></PetsList>
+      <Header></Header>
+      <Home pets={pets}></Home>
     </>
   );
 }

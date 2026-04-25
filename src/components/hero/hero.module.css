@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color:#d3d3d3;
+    background-color:#FDA923;
     overflow: hidden;
 }
 
@@ -14,7 +14,7 @@
 }
 .heroTitle,.heroContent{
     font-family: var(--font-display);
-    color: var( --color-primary);
+    color:#fff;
 }
 
 .heroSubtitle {
@@ -37,7 +37,7 @@
     right: -30%;
     border-radius: 50%;
     display: block;
-    background-color: var(--color-primary);
+    background-color:#FF7D01;
     width: 120%;
     aspect-ratio: 1/1;
 }

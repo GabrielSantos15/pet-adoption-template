@@ -1,8 +1,76 @@
-.PetCard{
-    max-width: 500px;
+.PetCard {
+  position: relative;
+  width: min(350px, calc(100vw - 4rem));
+  box-shadow: 5px 5px 10px #0000000a;
+  border-radius: 15px;
+    background-color: var(--color-surface);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
-.PetCard img{
-    border-radius: 10px;
-    object-fit: cover;
-    aspect-ratio: 1/1;
+
+.PetCard img {
+  background-color: #c9c9c9;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  transition: all 0.5s;
+}
+
+.PetCard:hover img {
+  scale: 1.1;
+  rotate: 5deg;
+}
+
+.PetCard:hover + img:not(:hover) {
+  filter: grayscale(1);
+}
+
+.SexoIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.SexoIconMacho {
+  background-color: #2563eb;
+}
+
+.SexoIconFemea {
+  background-color: #ec4899;
+}
+
+.InfoCard {
+  border-radius: 16px 16px 0 0;
+  translate: 0 -15px;
+  background-color: var(--color-surface);
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.InfoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.InfoCard h1 {
+  font-weight: bold;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+
+.ArrivalText {
+  display: block;
+  color: #4b5563;
+  font-size: 0.875rem;
 }

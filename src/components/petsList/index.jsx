@@ -1,14 +1,52 @@
 import { PetCard } from "../petCard";
-import styles from "./petList.module.css"
+import { useRef } from "react";
+import styles from "./petList.module.css";
 
 export const PetsList = ({ pets }) => {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    const scrollAmount = 300;
+
+    if (direction === "left") {
+      container.scrollLeft -= scrollAmount;
+    } else {
+      container.scrollLeft += scrollAmount;
+    }
+  };
+
   return (
-<section className="flex gap-4 overflow-x-auto p-4 snap-x snap-mandatory">
-  {pets.map((pet, index) => (
-    <div className="min-w-[250px] snap-start" key={index}>
-      <PetCard pet={pet} />
+    <div className={styles.petsList}>
+      <div
+        ref={scrollRef}
+        className={styles.carousel}
+      >
+        {pets.map((pet, index) => (
+          <div key={index} className={styles.carouselItem}>
+            <PetCard pet={pet} />
+          </div>
+        ))}
+      </div>
+
+      {/* Botões */}
+
+      <div className={styles.controls}>
+        <button
+          onClick={() => scroll("left")}
+          aria-label="Rolar para a esquerda"
+          className={styles.controlButtonPrimary}
+        >
+          ←
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          aria-label="Rolar para a direita"
+          className={styles.controlButtonSecondary}
+        >
+          →
+        </button>
+      </div>
     </div>
-  ))}
-</section>
   );
 };
