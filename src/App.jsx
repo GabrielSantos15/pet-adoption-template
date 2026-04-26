@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Header } from "./components/header";
+import Header from "./components/header";
 import { Home } from "./pages/home";
 import Papa from "papaparse";
 
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <Home pets={pets} loading={isLoading} />
     </>
   );

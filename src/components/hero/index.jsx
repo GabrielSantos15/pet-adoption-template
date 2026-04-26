@@ -3,7 +3,7 @@ import dogBanner from "../../assets/images/home-banner-dog.webp";
 
 export const Hero = () => {
   return (
-    <section className={styles.heroSection}>
+    <section id="heroSection" className={styles.heroSection}>
       <article className={styles.heroContent}>
         <h1 className={styles.heroTitle}>OngPet</h1>
         <h2 className={styles.heroSubtitle}>Dê uma segunda chance para um pet</h2>
