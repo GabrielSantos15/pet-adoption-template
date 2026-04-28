@@ -1,0 +1,5 @@
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding: clamp(1rem, 3vw, 3rem);
+}

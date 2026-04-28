@@ -1,12 +1,15 @@
 .heroSection {
     position: relative;
+    background-color: #FDA923;
+    overflow: hidden;
+    padding-top: 4rem;
+}
+
+.heroInner {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #FDA923;
-    overflow: hidden;
-    padding-top: 4rem;
 }
 
 .heroContent {
@@ -21,7 +24,7 @@
 }
 
 .heroSubtitle {
-    font-size: clamp(1.2rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 5vw, 4.5rem);
 }
 
 .heroImage {

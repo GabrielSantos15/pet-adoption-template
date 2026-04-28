@@ -1,0 +1,55 @@
+.AboutSection {
+    background-color: #E3E3E3;
+}
+
+.Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.Wrapper {
+    flex: 1 1 400px;
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.FigureConteiner {
+    flex: 1 1 400px;
+    max-width: 550px;
+    position: relative;
+}
+
+.FigureConteiner img {
+    border: 10px solid #fff;
+    border-bottom: 50px solid #fff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.FigureConteiner img:first-child {
+    position: relative;
+    z-index: 1;
+    width: 75%;
+    rotate: -3deg;
+    display: block;
+} 
+
+.FigureConteiner img:last-child {
+    position: absolute;
+    z-index: 2;
+    width: 70%;
+    right: 0;
+    bottom: -40%;
+    rotate: 5deg;
+}
+
+@media (max-width: 768px) {
+    .AboutSection {
+        gap: 5rem;
+    }
+}

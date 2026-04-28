@@ -3,7 +3,7 @@ import { IoMdFemale, IoMdMale } from "react-icons/io";
 
 export const PetCard = ({ pet }) => {
   const isMacho = pet.Sexo === "Macho";
-  const chegadaFormatada = (() => {
+  const tempoEspera = (() => {
     if (!pet.Chegada) return "";
 
     const dataChegada = new Date(`${pet.Chegada}T12:00:00`);
@@ -12,13 +12,22 @@ export const PetCard = ({ pet }) => {
       return pet.Chegada;
     }
 
-    const texto = new Intl.DateTimeFormat("pt-BR", {
-      month: "long",
-      year: "numeric",
-      timeZone: "UTC",
-    }).format(dataChegada);
+    const hoje = new Date();
 
-    return texto.replace(" de ", ", ");
+    let anos = hoje.getFullYear() - dataChegada.getFullYear();
+    let meses = hoje.getMonth() - dataChegada.getMonth();
+
+    if (meses < 0) {
+      anos--;
+      meses += 12;
+    }
+
+    if (anos > 0) return `${anos} ano${anos > 1 ? "s" : ""}`;
+    if (meses > 0)return `${meses} mês${meses > 1 ? "es" : ""}`;
+    
+    const dias = Math.floor((hoje - dataChegada) / (1000 * 60 * 60 * 24));
+
+    return `${dias} dia${dias > 1 ? "s" : ""}`;
   })();
 
   return (
@@ -34,7 +43,7 @@ export const PetCard = ({ pet }) => {
       <div className={styles.InfoCard}>
         <div className={styles.InfoContent}>
           <h1>{pet.Nome}</h1>
-          <span className={styles.ArrivalText}>Chegou em {chegadaFormatada}</span>
+          <span className={styles.ArrivalText}>Esperando há {tempoEspera}</span>
         </div>
       </div>
     </article>

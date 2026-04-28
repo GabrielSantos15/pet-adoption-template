@@ -1,0 +1,9 @@
+.button {
+    width: fit-content;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    border-radius: 20px;
+    border: none;
+    padding:0.5rem 1rem ;
+}
