@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import styles from "./petCard.module.css";
 import { IoMdFemale, IoMdMale } from "react-icons/io";
 
 export const PetCard = ({ pet }) => {
+  const [hasImageError, setHasImageError] = useState(false);
   const isMacho = pet.Sexo === "Macho";
+
+  useEffect(() => {
+    setHasImageError(false);
+  }, [pet.Foto]);
+
   const tempoEspera = (() => {
     if (!pet.Chegada) return "";
 
@@ -39,7 +46,17 @@ export const PetCard = ({ pet }) => {
       >
         {isMacho ? <IoMdMale /> : <IoMdFemale />}
       </span>
-      <img src={pet.Foto} alt={pet.Nome} />
+      <div className={styles.MediaFrame}>
+        {pet.Foto && !hasImageError ? (
+          <img
+            src={pet.Foto}
+            alt={pet.Nome}
+            onError={() => setHasImageError(true)}
+          />
+        ) : (
+          <div className={styles.ImagePlaceholder} aria-hidden="true" />
+        )}
+      </div>
       <div className={styles.InfoCard}>
         <div className={styles.InfoContent}>
           <h1>{pet.Nome}</h1>

@@ -1,8 +1,7 @@
 .PetCard {
     position: relative;
-    width: min(350px, calc(100vw - 4rem));
-    min-width: min(350px, calc(100vw - 4rem));
-    flex-shrink: 0;
+    width: 100%;
+    max-width: 360px;
     box-shadow: 5px 5px 10px #0000000a;
     border-radius: 15px;
     background-color: var(--color-surface);
@@ -16,7 +15,7 @@
     position: relative;
     background: linear-gradient(110deg, #ececec 8%, #f7f7f7 18%, #ececec 33%);
     background-size: 200% 100%;
-    width: min(350px, calc(100vw - 4rem));
+    width: 100%;
     aspect-ratio: 1/1;
     animation: shimmer 1.35s linear infinite;
 }

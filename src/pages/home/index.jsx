@@ -3,24 +3,14 @@ import { Hero } from "../../components/hero";
 import { PetsList } from "../../components/petsList";
 import { PorQueAdotar } from "../../components/PorQueAdotar";
 import { Container } from "../../components/container";
-import { useDestaques } from "../../hooks/useDestaques";
+import { useDestaques, useOldestArrivals, usePets } from "../../hooks/usePets";
 import styles from "./home.module.css";
 
-export const Home = ({ pets, loading }) => {
+export const Home = () => {
+  const { pets, isLoading: loading } = usePets();
   const destaques = useDestaques(pets, 5);
+  const oldestArrivals = useOldestArrivals(pets, 5);
 
-  //  Estrutura planejada
-  //Hero (impacto + CTA)
-  // ↓
-  //  Destaques (5 pets)
-  // ↓
-  //  Por que adotar
-  // ↓
-  // Sobre a ONG (confiança)
-  // ↓
-  // Adultos precisam de um lar
-  // ↓
-  //  Como adotar / Contato
   return (
     <main className={styles.homeMain}>
       <Hero />
@@ -41,6 +31,21 @@ export const Home = ({ pets, loading }) => {
       </section>
       <PorQueAdotar></PorQueAdotar>
       <About></About>
+      <section className={styles.emphasisSection}>
+        <Container>
+          <h2 className={styles.sectionTitle}>
+            Adultos também merecem uma chance
+          </h2>
+          <p className={styles.sectionText}>
+            Animais adultos costumam ser menos escolhidos, mas têm muito amor
+            para oferecer. Talvez o seu próximo companheiro esteja aqui.
+          </p>
+        </Container>
+
+        <div className={styles.listWrapper}>
+          <PetsList pets={oldestArrivals} loading={loading} />
+        </div>
+      </section>
     </main>
   );
 };

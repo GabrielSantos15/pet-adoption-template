@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,12 +39,12 @@ export default function Header() {
       >
         <div className={styles.menu} onClick={(e) => e.stopPropagation()}>
           <nav className={styles.nav}>
-            <a href="#heroSection" onClick={closeMenu}>
+            <Link to="/" onClick={closeMenu}>
               Início
-            </a>
-            <a href="#petsSection" onClick={closeMenu}>
+            </Link>
+            <Link to="/pets" onClick={closeMenu}>
               Pets
-            </a>
+            </Link>
             <a href="#AboutSection" onClick={closeMenu}>
               Sobre
             </a>

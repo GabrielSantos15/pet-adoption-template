@@ -1,5 +1,5 @@
 .siteHeader {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -109,6 +109,7 @@
 
 @media (min-width: 768px) {
     .siteHeader {
+        position: fixed;
         background-color: transparent;
         color: #fff;
     }

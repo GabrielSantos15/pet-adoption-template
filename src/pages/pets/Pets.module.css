@@ -1,0 +1,33 @@
+.hero{
+    position: relative;
+    background-color: var(--color-primary);
+}
+
+
+.hero h1{
+    text-align: center;
+	font-size: clamp(7rem, 15vw, 20rem);
+    color: var(--color-primary-light);
+}
+
+.hero img{
+    position: absolute;
+    bottom: -7.5%;
+    left: 50%;
+    translate: -50%;
+    display: block;
+    height: 90%;
+}
+
+@media (max-width: 768px) {
+    .hero img {
+        display: none;
+    }
+}
+
+.petsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    justify-items: stretch;
+}
