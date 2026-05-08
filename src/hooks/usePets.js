@@ -38,3 +38,30 @@ export const useOldestArrivals = (pets, quantidade = 5) => {
       .slice(0, quantidade);
   }, [pets, quantidade]);
 };
+
+export const tempoEspera = (pet) => {
+  if (!pet || !pet.Chegada) return "";
+
+  const dataChegada = new Date(`${pet.Chegada}T12:00:00`);
+
+  if (Number.isNaN(dataChegada.getTime())) {
+    return pet.Chegada;
+  }
+
+  const hoje = new Date();
+
+  let anos = hoje.getFullYear() - dataChegada.getFullYear();
+  let meses = hoje.getMonth() - dataChegada.getMonth();
+
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
+
+  if (anos > 0) return `${anos} ano${anos > 1 ? "s" : ""}`;
+  if (meses > 0) return `${meses} mês${meses > 1 ? "es" : ""}`;
+  
+  const dias = Math.floor((hoje - dataChegada) / (1000 * 60 * 60 * 24));
+
+  return `${dias} dia${dias > 1 ? "s" : ""}`;
+};

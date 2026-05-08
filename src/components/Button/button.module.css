@@ -1,4 +1,8 @@
 .button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     width: fit-content;
     background-color: var(--color-primary);
     color: #fff;
@@ -7,3 +11,4 @@
     border: none;
     padding:0.5rem 1rem ;
 }
+

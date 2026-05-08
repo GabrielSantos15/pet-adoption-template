@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./petCard.module.css";
 import { IoMdFemale, IoMdMale } from "react-icons/io";
+import { tempoEspera } from "../../hooks/usePets";
+import dogDefault from "../../assets/images/dog-default.webp";
 
 export const PetCard = ({ pet }) => {
   const [hasImageError, setHasImageError] = useState(false);
@@ -10,59 +13,36 @@ export const PetCard = ({ pet }) => {
     setHasImageError(false);
   }, [pet.Foto]);
 
-  const tempoEspera = (() => {
-    if (!pet.Chegada) return "";
-
-    const dataChegada = new Date(`${pet.Chegada}T12:00:00`);
-
-    if (Number.isNaN(dataChegada.getTime())) {
-      return pet.Chegada;
-    }
-
-    const hoje = new Date();
-
-    let anos = hoje.getFullYear() - dataChegada.getFullYear();
-    let meses = hoje.getMonth() - dataChegada.getMonth();
-
-    if (meses < 0) {
-      anos--;
-      meses += 12;
-    }
-
-    if (anos > 0) return `${anos} ano${anos > 1 ? "s" : ""}`;
-    if (meses > 0)return `${meses} mês${meses > 1 ? "es" : ""}`;
-    
-    const dias = Math.floor((hoje - dataChegada) / (1000 * 60 * 60 * 24));
-
-    return `${dias} dia${dias > 1 ? "s" : ""}`;
-  })();
+  const tempo = tempoEspera(pet);
 
   return (
-    <article className={styles.PetCard}>
-      <span
-        className={`${styles.SexoIcon} ${
-          isMacho ? styles.SexoIconMacho : styles.SexoIconFemea
-        }`}
-      >
-        {isMacho ? <IoMdMale /> : <IoMdFemale />}
-      </span>
-      <div className={styles.MediaFrame}>
-        {pet.Foto && !hasImageError ? (
-          <img
-            src={pet.Foto}
-            alt={pet.Nome}
-            onError={() => setHasImageError(true)}
-          />
-        ) : (
-          <div className={styles.ImagePlaceholder} aria-hidden="true" />
-        )}
-      </div>
-      <div className={styles.InfoCard}>
-        <div className={styles.InfoContent}>
-          <h1>{pet.Nome}</h1>
-          <span className={styles.ArrivalText}>Esperando há {tempoEspera}</span>
+    <Link to={`/pet/${pet.id}`} className={styles.PetLink}>
+      <article className={styles.PetCard}>
+        <span
+          className={`${styles.SexoIcon} ${
+            isMacho ? styles.SexoIconMacho : styles.SexoIconFemea
+          }`}
+        >
+          {isMacho ? <IoMdMale /> : <IoMdFemale />}
+        </span>
+        <div className={styles.MediaFrame}>
+          {pet.Foto ? (
+            <img
+              src={hasImageError ? dogDefault : pet.Foto}
+              alt={pet.Nome}
+              onError={() => setHasImageError(true)}
+            />
+          ) : (
+            <div className={styles.ImagePlaceholder} aria-hidden="true" />
+          )}
         </div>
-      </div>
-    </article>
+        <div className={styles.InfoCard}>
+          <div className={styles.InfoContent}>
+            <h1>{pet.Nome}</h1>
+            <span className={styles.ArrivalText}>Esperando há {tempo}</span>
+          </div>
+        </div>
+      </article>
+    </Link>
   );
 };

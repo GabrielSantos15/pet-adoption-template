@@ -5,7 +5,7 @@ import { Container } from "../container";
 export const Hero = () => {
   return (
     <section id="heroSection" className={styles.heroSection}>
-      <Container className={styles.heroInner}>
+      <Container direction="row" className={styles.heroInner}>
         <article className={styles.heroContent}>
           <h1 className={styles.heroTitle}>OngPet</h1>
           <h2 className={`${styles.heroSubtitle} fontDisplay`}>

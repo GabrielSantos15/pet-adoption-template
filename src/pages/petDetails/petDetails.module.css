@@ -1,0 +1,176 @@
+.Page {
+    min-height: 100vh;
+    background-color: var(--color-surface);
+}
+
+.Media {
+    width: 100vw;
+    aspect-ratio: 4 / 3;
+}
+
+.Image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Content {
+    height: 100%;
+    margin-top: -2rem;
+    position: relative;
+    border-radius: 2rem 2rem 0 0;
+    background-color: var(--color-surface);
+}
+
+.StateTitle {
+    padding: 3rem 1rem;
+    text-align: center;
+    font-size: clamp(1.2rem, 2vw + 0.8rem, 2rem);
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Title {
+    font-weight: 600;
+}
+
+.GenderIcon {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.ArrivalInfo {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.MetasContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.Meta {
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: var(--color-muted);
+}
+
+.Meta h3 {
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.Meta p {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.DescriptionContainer {
+    padding: 1.5rem;
+    border: 3px dashed var(--color-muted);
+    border-radius: 0.5rem;
+}
+
+.DescriptionContainer h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.Description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.ActionsContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--color-surface);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.adoptLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: .5rem;
+    color: #fff;
+    text-decoration: none;
+    background-color: var(--color-primary);
+    border-radius: 2rem;
+    transition: all .5s;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Icon {
+    color: #fff;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 2rem;
+    display: grid;
+    place-content: center;
+    background-color: #000;
+    transition: all .5s;
+}
+
+.adoptLink:hover .Icon {
+    transform: rotate(25deg);
+}
+
+@media (min-width: 768px) {
+    .Page {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        background-color: var(--color-bg);
+        padding: 1rem;
+    }
+
+    .Card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: fit-content;
+        flex-wrap: wrap;
+        background-color: var(--color-surface);
+        border-radius: 2rem;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .Content {
+        margin-top: auto;
+    }
+
+    .Media {
+        border-radius: 1rem;
+        width: min(500px, 45vw);
+        overflow: hidden;
+    }
+
+    .Image {
+        height: 100%;
+        background-color: #000;
+        object-fit: cover;
+    }
+
+
+    .ActionsContainer {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
+}

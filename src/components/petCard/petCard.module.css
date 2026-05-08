@@ -1,3 +1,9 @@
+.PetLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .PetCard {
   position: relative;
   width: 100%;
@@ -44,7 +50,7 @@
   rotate: 5deg;
 }
 
-.PetCard:hover + img:not(:hover) {
+.PetCard:hover+img:not(:hover) {
   filter: grayscale(1);
 }
 
@@ -73,7 +79,8 @@
 
 .InfoCard {
   border-radius: 16px 16px 0 0;
-  translate: 0 -15px;
+  margin-top: -2rem;
+  position: relative;
   background-color: var(--color-surface);
   padding: 1rem 1.25rem 1.25rem;
 }
@@ -85,7 +92,7 @@
 }
 
 .InfoCard h1 {
-  font-weight: bold;
+  font-weight: 600;
   font-size: clamp(1.3rem, 2.5vw, 1.5rem);
   line-height: 1.2;
 }

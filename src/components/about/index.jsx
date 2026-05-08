@@ -6,7 +6,7 @@ import styles from "./about.module.css";
 export const About = () => {
   return (
     <section className={styles.AboutSection}>
-      <Container className={styles.Content}>
+      <Container direction="row" className={styles.Content}>
         <article className={styles.Wrapper}>
           <p>
             Somos uma ONG dedicada ao resgate e cuidado de animais em situação

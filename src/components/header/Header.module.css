@@ -22,7 +22,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .show {
@@ -107,16 +107,32 @@
     width: 100%;
 }
 
+.hiddenOnMobile {
+    display: none;
+}
+
+.scrolled {
+    background-color: var(--color-surface);
+    color: #000;
+}
+
 @media (min-width: 768px) {
-    .siteHeader {
-        position: fixed;
-        background-color: transparent;
-        color: #fff;
+    .hiddenOnMobile {
+        display: flex;
     }
 
-    .scrolled {
-        color: #000;
+    .siteHeader {
+        position: fixed;
         background-color: var(--color-surface);
+    }
+
+    .siteHeader.transparent {
+        background-color: transparent;
+        color: #fff;
+        box-shadow: none;
+    }
+
+    .siteHeader.scrolled {
         box-shadow: 0 5px 10px #0000003d;
     }
 
@@ -133,8 +149,15 @@
         pointer-events: auto;
     }
 
-    .menu {
+    .transparent {
+        background-color: transparent;
+    }
+
+    .transparent .menu {
         color: #fff;
+    }
+
+    .menu {
         position: static;
         width: auto;
         height: auto;
@@ -144,8 +167,8 @@
         flex-direction: row;
     }
 
-    .scrolled .menu {
-        background: transparent;
+    .siteHeader .transparent {
+        color: #fff;
     }
 
     .nav {
@@ -159,7 +182,7 @@
         color: inherit;
     }
 
-    .scrolled .nav a {
+    .siteHeader.scrolled .nav a {
         color: var(--color-text);
     }
 }

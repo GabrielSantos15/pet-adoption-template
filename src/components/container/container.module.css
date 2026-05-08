@@ -1,5 +1,15 @@
 .container {
     width: 100%;
+    display: flex;
+    gap: 1.5rem;
     margin-inline: auto;
     padding: clamp(1rem, 3vw, 3rem);
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
 }

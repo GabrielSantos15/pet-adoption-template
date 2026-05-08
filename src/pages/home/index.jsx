@@ -1,7 +1,7 @@
 import { About } from "../../components/about";
 import { Hero } from "../../components/hero";
 import { PetsList } from "../../components/petsList";
-import { PorQueAdotar } from "../../components/PorQueAdotar";
+import { PorQueAdotar } from "../../components/porQueAdotar";
 import { Container } from "../../components/container";
 import { useDestaques, useOldestArrivals, usePets } from "../../hooks/usePets";
 import styles from "./home.module.css";
@@ -17,17 +17,20 @@ export const Home = () => {
 
       <section className={styles.emphasisSection}>
         <Container>
-          <h2 className={styles.sectionTitle}>
-            Conheça alguns dos nossos animais
-          </h2>
-          <p className={styles.sectionText}>
-            Cada um deles tem uma história, talvez a próxima seja com você
-          </p>
+          <div>
+            <h2 className={styles.sectionTitle}>
+              Conheça alguns dos nossos animais
+            </h2>
+            <p className={styles.sectionText}>
+              Cada um deles tem uma história, talvez a próxima seja com você
+            </p>
+          </div>
         </Container>
 
         <div className={styles.listWrapper}>
           <PetsList pets={destaques} loading={loading} />
         </div>
+        
       </section>
       <PorQueAdotar></PorQueAdotar>
       <About></About>

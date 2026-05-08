@@ -1,0 +1,10 @@
+.BtnCompartilhar {
+    all: unset;
+    opacity: .5;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.BtnCompartilhar:hover {
+    opacity: 1;
+}

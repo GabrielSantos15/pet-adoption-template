@@ -1,19 +1,22 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
-export default function Header() {
+import styles from "./Header.module.css";
+
+export default function Header({ isPetDetailsRoute = false, hasHero = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const [visible, setVisible] = useState(true);
   const lastScrollRef = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const current = window.scrollY;
-      setScrolled(current > 10);
+      const atTop = current <= 10;
 
+      setIsAtTop(atTop);
       setVisible(current < 50 || current < lastScrollRef.current);
+
       lastScrollRef.current = current;
     };
 
@@ -27,7 +30,9 @@ export default function Header() {
     <header
       className={`${styles.siteHeader} ${
         visible ? styles.show : styles.hide
-      } ${scrolled ? styles.scrolled : ""}`}
+      } ${isPetDetailsRoute ? styles.hiddenOnMobile : ""} ${
+        hasHero && isAtTop ? styles.transparent : styles.scrolled
+      }`}
     >
       <figure className={styles.logo}>
         <h1>OngPet</h1>
