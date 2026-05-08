@@ -1,0 +1,190 @@
+.Page {
+    min-height: 100vh;
+    background-color: var(--color-surface);
+}
+
+.Card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.Media {
+    width: 100vw;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(110deg, #ececec 8%, #f7f7f7 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: shimmer 1.35s linear infinite;
+}
+
+.Content {
+    margin-top: -2rem;
+    position: relative;
+    border-radius: 2rem 2rem 0 0;
+    background-color: var(--color-surface);
+}
+
+.Header,
+.ArrivalInfo,
+.MetaLabel,
+.MetaValue,
+.DescriptionTitle,
+.DescriptionLine,
+.ButtonLine,
+.IconLine,
+.ShareLine {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(110deg, #ececec 8%, #f7f7f7 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: shimmer 1.35s linear infinite;
+}
+
+.Header {
+    width: 60%;
+    height: 2rem;
+    border-radius: 999px;
+}
+
+.ArrivalInfo {
+    width: 42%;
+    height: 1rem;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+}
+
+.MetaGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.MetaCard {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--color-muted);
+}
+
+.MetaLabel {
+    width: 70%;
+    height: 0.9rem;
+    border-radius: 999px;
+}
+
+.MetaValue {
+    width: 90%;
+    height: 1.1rem;
+    margin-top: 0.6rem;
+    border-radius: 999px;
+}
+
+.DescriptionBox {
+    padding: 1.5rem;
+    border: 3px dashed var(--color-muted);
+    border-radius: 0.5rem;
+}
+
+.DescriptionTitle {
+    width: 55%;
+    height: 1.1rem;
+    border-radius: 999px;
+}
+
+.DescriptionLine {
+    width: 100%;
+    height: 0.95rem;
+    margin-top: 0.8rem;
+    border-radius: 999px;
+}
+
+.DescriptionLineShort {
+    width: 78%;
+}
+
+.ActionsContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.ButtonLine {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 2rem;
+}
+
+.ButtonContent {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.IconLine {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+}
+
+.ShareLine {
+    width: 5.5rem;
+    height: 3rem;
+    border-radius: 2rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Media,
+    .Header,
+    .ArrivalInfo,
+    .MetaLabel,
+    .MetaValue,
+    .DescriptionTitle,
+    .DescriptionLine,
+    .ButtonLine,
+    .IconLine,
+    .ShareLine {
+        animation: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .Page {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        background-color: var(--color-bg);
+        padding: 1rem;
+    }
+
+    .Card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: fit-content;
+        flex-wrap: wrap;
+        background-color: var(--color-surface);
+        border-radius: 2rem;
+        padding: 1rem;
+        overflow: hidden;
+        min-height: auto;
+    }
+
+    .Media {
+        border-radius: 1rem;
+        width: min(500px, 45vw);
+        overflow: hidden;
+    }
+
+    .Content {
+        margin-top: auto;
+    }
+}

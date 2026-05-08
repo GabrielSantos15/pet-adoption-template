@@ -135,7 +135,8 @@
         display: grid;
         place-content: center;
         min-height: 100vh;
-        background-color: var(--color-bg);
+        background-color: var(--color-background);
+        background-image:linear-gradient(#ffffffad,#ffffff6e) ,url("../pattern.webp") ;
         padding: 1rem;
     }
 
@@ -149,6 +150,7 @@
         border-radius: 2rem;
         padding: 1rem;
         overflow: hidden;
+        box-shadow: 5px 5px 10px #0000001a,-5px -5px 10px #fffafa1a;
     }
 
     .Content {
@@ -163,7 +165,7 @@
 
     .Image {
         height: 100%;
-        background-color: #000;
+        background-color: var(--color-muted);
         object-fit: cover;
     }
 

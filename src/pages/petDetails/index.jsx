@@ -5,6 +5,9 @@ import { Container } from "../../components/container";
 import { IoMdFemale, IoMdMale } from "react-icons/io";
 import { IoPawSharp } from "react-icons/io5";
 import { ShareButton } from "../../components/shareButton";
+import dogDefault from "../../assets/images/dog-default.webp";
+import { useState } from "react";
+import { PetDetailsSkeleton } from "./skeleton";
 
 const METAS = ["Porte", "Idade", "Temperamento"];
 
@@ -15,11 +18,12 @@ const StateScreen = ({ message }) => (
 );
 
 export const PetDetails = () => {
+  const [hasImageError, setHasImageError] = useState(false);
   const { id } = useParams();
   const { pets, isLoading } = usePets();
 
   if (isLoading) {
-    return <StateScreen message="Carregando..." />;
+    return <PetDetailsSkeleton />;
   }
 
   const pet = pets.find((currentPet) => String(currentPet.id) === id);
@@ -35,7 +39,12 @@ export const PetDetails = () => {
     <main className={styles.Page}>
       <section className={styles.Card}>
         <figure className={styles.Media}>
-          <img className={styles.Image} src={pet.Foto} alt={pet.Nome} />
+          <img
+            className={styles.Image}
+            src={hasImageError ? dogDefault : pet.Foto}
+             onError={() => setHasImageError(true)}
+            alt={pet.Nome}
+          />
         </figure>
 
         <article className={styles.Content}>
