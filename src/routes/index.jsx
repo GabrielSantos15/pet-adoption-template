@@ -1,14 +1,15 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-import { Home } from '../pages/home';
-import { Pets } from '../pages/pets';
-import Header from '../components/header';
-import { PetDetails } from '../pages/petDetails';
+import { Home } from "../pages/home";
+import { Pets } from "../pages/pets";
+import Header from "../components/header";
+import { PetDetails } from "../pages/petDetails";
+import { NotFound } from "../pages/notFound";
 
 function RouterContent() {
   const location = useLocation();
-  const isPetDetailsRoute = location.pathname.startsWith('/pet/');
-  const hasHero = location.pathname === '/' || location.pathname === '/pets';
+  const isPetDetailsRoute = location.pathname.startsWith("/pet/");
+  const hasHero = location.pathname === "/" || location.pathname === "/pets";
 
   return (
     <>
@@ -17,6 +18,7 @@ function RouterContent() {
         <Route path="/" element={<Home />} />
         <Route path="/pets" element={<Pets />} />
         <Route path="/pet/:id" element={<PetDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

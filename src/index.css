@@ -16,6 +16,7 @@
 :root {
   --color-primary: #FF9201;
   --color-primary-light: #FAC51A;
+  --color-primary-hover: #dd5303;
 
   /* --color-background: #F5F5F5; */
   --color-background: #f5f5f5;
@@ -25,7 +26,6 @@
   --color-text: #333333;
   --color-text-light: #666666;
 
-  --color-accent: #FFB347;
 
   --color-success: #4CAF50;
   --color-error: #F44336;

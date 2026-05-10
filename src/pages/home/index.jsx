@@ -3,6 +3,7 @@ import { Hero } from "../../components/hero";
 import { PetsList } from "../../components/petsList";
 import { PorQueAdotar } from "../../components/porQueAdotar";
 import { Container } from "../../components/container";
+import { Contato } from "../../components/contato";
 import { useDestaques, useOldestArrivals, usePets } from "../../hooks/usePets";
 import styles from "./home.module.css";
 
@@ -49,6 +50,9 @@ export const Home = () => {
           <PetsList pets={oldestArrivals} loading={loading} />
         </div>
       </section>
+      <Contato>
+
+      </Contato>
     </main>
   );
 };
