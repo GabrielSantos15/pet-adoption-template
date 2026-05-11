@@ -33,6 +33,7 @@ export const PetsProvider = ({ children }) => {
 
         setPets(petsComId);
         setIsLoading(false);
+        console.log(petsComId)
       },
       error: (err) => {
         console.error("Erro ao ler o CSV:", err);

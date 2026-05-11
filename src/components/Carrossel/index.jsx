@@ -4,7 +4,7 @@ import styles from "./petList.module.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { PetCardSkeleton } from "../petCardSkeleton/PetCardSkeleton";
 
-export const PetsList = ({ pets, loading }) => {
+export const Carrossel = ({ pets, loading }) => {
   const scrollRef = useRef(null);
   const skeletonCount = 5;
 

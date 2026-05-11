@@ -1,6 +1,6 @@
 import { About } from "../../components/about";
 import { Hero } from "../../components/hero";
-import { PetsList } from "../../components/petsList";
+import { Carrossel } from "../../components/Carrossel";
 import { PorQueAdotar } from "../../components/porQueAdotar";
 import { Container } from "../../components/container";
 import { Contato } from "../../components/contato";
@@ -29,7 +29,7 @@ export const Home = () => {
         </Container>
 
         <div className={styles.listWrapper}>
-          <PetsList pets={destaques} loading={loading} />
+          <Carrossel pets={destaques} loading={loading} />
         </div>
         
       </section>
@@ -47,7 +47,7 @@ export const Home = () => {
         </Container>
 
         <div className={styles.listWrapper}>
-          <PetsList pets={oldestArrivals} loading={loading} />
+          <Carrossel pets={oldestArrivals} loading={loading} />
         </div>
       </section>
       <Contato>
