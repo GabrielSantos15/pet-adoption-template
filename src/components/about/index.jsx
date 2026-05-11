@@ -1,11 +1,30 @@
+import { useEffect } from "react";
 import figureAdopted from "../../assets/images/foto.jpg";
 import figureAdopted2 from "../../assets/images/foto2.jpg";
 import { Container } from "../container";
 import styles from "./about.module.css";
 
 export const About = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.location.hash === "#aboutSection") {
+        const element = document.getElementById("aboutSection");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    // Faz scroll quando a página carrega com o hash
+    handleScroll();
+
+    // Faz scroll quando o hash muda enquanto já está na página
+    window.addEventListener("hashchange", handleScroll);
+    return () => window.removeEventListener("hashchange", handleScroll);
+  }, []);
+
   return (
-    <section className={styles.AboutSection}>
+    <section id="aboutSection" className={styles.AboutSection}>
       <Container direction="row" className={styles.Content}>
         <article className={styles.Wrapper}>
           <p>

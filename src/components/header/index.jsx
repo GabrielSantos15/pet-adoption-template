@@ -50,9 +50,9 @@ export default function Header({ isPetDetailsRoute = false, hasHero = false }) {
             <Link to="/pets" onClick={closeMenu}>
               Pets
             </Link>
-            <a href="#AboutSection" onClick={closeMenu}>
+            <Link to="/#aboutSection" onClick={closeMenu}>
               Sobre
-            </a>
+            </Link>
             <a href="#contactSection" onClick={closeMenu}>
               Contato
             </a>

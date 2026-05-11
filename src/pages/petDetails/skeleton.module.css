@@ -142,6 +142,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .Media,
     .Header,
     .ArrivalInfo,
@@ -161,7 +162,8 @@
         display: grid;
         place-content: center;
         min-height: 100vh;
-        background-color: var(--color-bg);
+        background-color: var(--color-background);
+        background-image: linear-gradient(#ffffffad, #ffffff6e), url("../pattern.webp");
         padding: 1rem;
     }
 

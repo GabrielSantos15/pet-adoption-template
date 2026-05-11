@@ -20,7 +20,7 @@ export const PorQueAdotar = () => {
             <li className={styles.listItem}>Ganha um companheiro fiel</li>
             <li className={styles.listItem}>Ajuda a reduzir o abandono</li>
             <li className={styles.listItem}>Recebe amor todos os dias</li>
-            <Button>Quero Adotar</Button>
+            <Button to="/pets">Quero Adotar</Button>
           </ul>
         </div>
       </Container>
